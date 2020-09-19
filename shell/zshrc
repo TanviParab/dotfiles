@@ -15,13 +15,9 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 
 # User configuration
-export ANDROID_HOME=${HOME}/Android/Sdk
-export GRADLE_HOME="/usr/share/gradle"
 export GOPATH=${HOME}/projects/go
 
 export GOPATH=${HOME}/projects/go
-export CARGO_HOME=$HOME/.cargo
-export DENO_HOME=$HOME/.deno
 
 # If directory exists they will be added to the path env variable
 declare -a dir_path
@@ -30,14 +26,6 @@ dir_path=(
   "$HOME/.local/bin"
   "/usr/local/go/bin"
   "$GOPATH/bin"
-  "$CARGO_HOME/bin"
-  "$DENO_HOME/bin"
-  "$ANDROID_HOME/tools"
-  "$ANDROID_HOME/tools/bin"
-  "$ANDROID_HOME/emulator"
-  "$ANDROID_HOME/platform-tools"
-  "$GRADLE_HOME/bin"
-  "$HOME/.garden/bin"
 )
 
 for dir in ${(k)dir_path[@]}
@@ -52,7 +40,6 @@ unset dir_path
 export PATH
 
 source /usr/share/autojump/autojump.sh
-source $HOME/.nvm/nvm.sh
 
 # fzf config
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
@@ -71,29 +58,6 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export LS_COLORS="$(vivid generate ayu)"
 
 export MANPAGER='sh -c "col -bx | bat --language=man --style=grid --color=always --decorations=always --theme='"'Monokai Extended Light'"'"'
-
-# Auto change node version with .nvmrc
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 
 # Load the shell dotfiles
 for file in $HOME/dotfiles/shell/{shell_aliases,shell_functions}; do

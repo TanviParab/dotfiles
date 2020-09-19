@@ -150,7 +150,6 @@ declare -a FILES_TO_SYMLINK=(
   'git/gitconfig'
   'git/gitignore'
 
-  'rc/javascript/eslintrc'
   'rc/ripgreprc'
 
   'shell/tmux'
@@ -270,11 +269,6 @@ if [ ! -d ~/.fzf ]; then
   ~/.fzf/install
 fi
 
-
-###############################################################################
-# Caps to Esc                                                                 #
-###############################################################################
-setxkbmap -option caps:escape
 
 ###############################################################################
 # Vim                                                                         #

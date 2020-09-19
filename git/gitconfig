@@ -15,7 +15,7 @@
     reset = reset --hard HEAD~1                  # Remove last commit (from HEAD, Index and Working Dir)
 
 [diff]
-	tool = meld
+	tool = vimdiff
 
 [merge]
-  tool = meld
+  tool = vimdiff

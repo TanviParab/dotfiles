@@ -2,14 +2,9 @@
 
 
 packages=(
-    vlc
-    postman
 )
 
 cpackages=(
-    code
-    sublime-text
-    sublime-merge
 )
 
 sudo snap install "${packages[@]}"

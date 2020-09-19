@@ -49,44 +49,9 @@ apt_packages+=(
   imagemagick
   vim
   vsftpd
-  guake
   xclip
   tmux
-  transmission
-  dconf-editor
 )
-
-# https://github.com/oguzhaninan/Stacer
-add_ppa ppa:oguzhaninan/stacer
-apt_packages+=(stacer)
-
-# https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
-add_ppa ppa:papirus/papirus
-apt_packages+=(papirus-icon-theme)
-
-# https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
-# add_ppa ppa:webupd8team/java
-# apt_packages+=(oracle-java8-installer)
-
-# https://www.ubuntuupdates.org/ppa/google_chrome
-apt_keys+=(https://dl-ssl.google.com/linux/linux_signing_key.pub)
-apt_source_files+=(google-chrome)
-apt_source_texts+=("deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main")
-apt_packages+=(google-chrome-stable)
-
-
-# https://yarnpkg.com/en/docs/install
-apt_keys+=(https://dl.yarnpkg.com/debian/pubkey.gpg)
-apt_source_files+=(yarn)
-apt_source_texts+=("deb https://dl.yarnpkg.com/debian/ stable main")
-apt_packages+=(yarn)
-
-# https://tecadmin.net/install-oracle-virtualbox-on-ubuntu/
-# apt_keys+=(https://www.virtualbox.org/download/oracle_vbox_2016.asc)
-# apt_source_files+=(virtualbox)
-# apt_source_texts+=("deb http://download.virtualbox.org/virtualbox/debian $release_name contrib")
-# apt_packages+=(virtualbox-5.1)
-
 
 # https://github.com/sharkdp/bat
 deb_installed+=(bat)
